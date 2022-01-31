@@ -6,6 +6,18 @@
 #
 #########################################################
 
+echo -e "\e[93m====================================================================================================\e[0m"
+echo -e "                         \e[1;93mYou're getting this script from the wrong place! \e[0m"
+echo -e "            Releases have been moved from the \e[1mmaster\e[0m branch to the \e[1mmain\e[0m branch a while ago."
+echo "                As such, the version you're trying to install is actually out-of-date."
+echo "                           Are you looking to run this command instead?"
+echo
+echo -e "\e[1mcurl https://raw.githubusercontent.com/ddavness/power-mailinabox/main/setup/bootstrap.sh | sudo bash\e[0m"
+echo -e "\e[93m====================================================================================================\e[0m"
+
+echo -ne "\n (Press enter to continue, or Ctrl+C to abort)"
+read
+
 # Are we running as root?
 if [[ $EUID -ne 0 ]]; then
 	echo "This script must be run as root. Did you leave out sudo?"
