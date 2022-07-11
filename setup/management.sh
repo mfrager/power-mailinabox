@@ -158,7 +158,7 @@ $minute 3 * * *	root	(cd $(pwd) && management/daily_tasks.sh)
 EOF
 
 # Start the management server.
-restart_service mailinabox
+#restart_service mailinabox
 
 # FOR DEVELOPMENT PURPOSES ONLY:
 # If there is a CA certificate in the folder, install it.

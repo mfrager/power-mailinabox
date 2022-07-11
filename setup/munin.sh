@@ -71,8 +71,8 @@ hide_output systemctl unmask munin.service
 hide_output systemctl enable munin.service
 
 # Restart services.
-restart_service munin
-restart_service munin-node
+#restart_service munin
+#restart_service munin-node
 
 # generate initial statistics so the directory isn't empty
 # (We get "Pango-WARNING **: error opening config file '/root/.config/pango/pangorc': Permission denied"

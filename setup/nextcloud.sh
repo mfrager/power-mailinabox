@@ -411,4 +411,4 @@ rm -f /etc/cron.hourly/mailinabox-owncloud
 # ```
 
 # Enable PHP modules and restart PHP.
-restart_service php$(php_version)-fpm
+#restart_service php$(php_version)-fpm

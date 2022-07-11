@@ -192,6 +192,6 @@ chmod 770 $STORAGE_ROOT/mail/spamassassin
 # sa-learn --spam storage/mail/mailboxes/*/*/.Spam/cur/
 
 # Kick services.
-restart_service spampd
-restart_service dovecot
+#restart_service spampd
+#restart_service dovecot
 
