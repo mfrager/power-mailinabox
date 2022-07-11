@@ -281,6 +281,8 @@ touch /etc/postfix/sasl_passwd
 chmod 600 /etc/postfix/sasl_passwd
 postmap /etc/postfix/sasl_passwd
 
+echo 'Postfix done'
+
 # Allow the two SMTP ports in the firewall.
 
 #ufw_allow smtp
