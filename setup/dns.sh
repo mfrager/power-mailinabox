@@ -151,5 +151,5 @@ chmod +x /etc/cron.daily/mailinabox-dnssec
 
 # Permit DNS queries on TCP/UDP in the firewall.
 
-ufw_allow domain
+#ufw_allow domain
 

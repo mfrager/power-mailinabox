@@ -211,11 +211,11 @@ mkdir -p $STORAGE_ROOT/mail/sieve/global_after
 chown -R mail.mail $STORAGE_ROOT/mail/sieve
 
 # Allow the IMAP/POP ports in the firewall.
-ufw_allow imaps
-ufw_allow pop3s
+#ufw_allow imaps
+#ufw_allow pop3s
 
 # Allow the Sieve port in the firewall.
-ufw_allow sieve
+#ufw_allow sieve
 
 # Restart services.
 restart_service dovecot

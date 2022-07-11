@@ -11,8 +11,8 @@ source setup/functions.sh # load our functions
 #
 # First set the hostname in the configuration file, then activate the setting
 
-echo $PRIMARY_HOSTNAME > /etc/hostname
-hostname $PRIMARY_HOSTNAME
+#echo $PRIMARY_HOSTNAME > /etc/hostname
+#hostname $PRIMARY_HOSTNAME
 
 # ### Fix permissions
 
@@ -80,7 +80,7 @@ fi
 # Set the systemd journal log retention from infinite to 10 days,
 # since over time the logs take up a large amount of space.
 # (See https://discourse.mailinabox.email/t/journalctl-reclaim-space-on-small-mailinabox/6728/11.)
-management/editconf.py /etc/systemd/journald.conf MaxRetentionSec=10day
+#management/editconf.py /etc/systemd/journald.conf MaxRetentionSec=10day
 
 # ### Update Packages
 
