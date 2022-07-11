@@ -269,7 +269,7 @@ EOF
 echo 'Postfix 1F'
 chmod +x /etc/cron.daily/mailinabox-postgrey-whitelist
 echo 'Postfix 1G'
-/etc/cron.daily/mailinabox-postgrey-whitelist
+#/etc/cron.daily/mailinabox-postgrey-whitelist
 
 echo 'Postfix 2'
 
