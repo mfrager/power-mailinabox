@@ -155,6 +155,7 @@ management/editconf.py /etc/postfix/main.cf \
 management/editconf.py /etc/postfix/main.cf \
 	smtpd_relay_restrictions=permit_sasl_authenticated,permit_mynetworks,reject_unauth_destination
 
+echo 'Postfix 1'
 
 # ### DANE
 
@@ -263,6 +264,8 @@ EOF
 chmod +x /etc/cron.daily/mailinabox-postgrey-whitelist
 /etc/cron.daily/mailinabox-postgrey-whitelist
 
+echo 'Postfix 2'
+
 # Increase the message size limit from 10MB to 128MB.
 # The same limit is specified in nginx.conf for mail submitted via webmail and Z-Push.
 management/editconf.py /etc/postfix/main.cf \
@@ -281,7 +284,7 @@ touch /etc/postfix/sasl_passwd
 chmod 600 /etc/postfix/sasl_passwd
 postmap /etc/postfix/sasl_passwd
 
-echo 'Postfix done'
+echo 'Postfix 3'
 
 # Allow the two SMTP ports in the firewall.
 
