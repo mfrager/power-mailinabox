@@ -200,9 +200,11 @@ management/editconf.py /etc/postfix/main.cf \
 #
 # In a basic setup we would pass mail directly to Dovecot by setting
 # virtual_transport to `lmtp:unix:private/dovecot-lmtp`.
+echo 'Postfix 1A'
 management/editconf.py /etc/postfix/main.cf "virtual_transport=lmtp:[127.0.0.1]:10025"
 # Because of a spampd bug, limit the number of recipients in each connection.
 # See https://github.com/mail-in-a-box/mailinabox/issues/1523.
+echo 'Postfix 1B'
 management/editconf.py /etc/postfix/main.cf lmtp_destination_recipient_limit=1
 
 
@@ -223,6 +225,7 @@ management/editconf.py /etc/postfix/main.cf lmtp_destination_recipient_limit=1
 # so these IPs get mail delivered quickly. But when an IP is not listed in the permit_dnswl_client list (i.e. it is not #NODOC
 # whitelisted) then postfix does a DEFER_IF_REJECT, which results in all "unknown user" sorts of messages turning into #NODOC
 # "450 4.7.1 Client host rejected: Service unavailable". This is a retry code, so the mail doesn't properly bounce. #NODOC
+echo 'Postfix 1C'
 management/editconf.py /etc/postfix/main.cf \
 	smtpd_sender_restrictions="reject_non_fqdn_sender,reject_unknown_sender_domain,reject_authenticated_sender_login_mismatch,reject_rhsbl_sender dbl.spamhaus.org" \
 	smtpd_recipient_restrictions="check_recipient_access sqlite:/etc/postfix/noreply-addresses.cf",permit_sasl_authenticated,permit_mynetworks,"reject_rbl_client zen.spamhaus.org",reject_unlisted_recipient,"check_policy_service inet:127.0.0.1:10023","check_policy_service inet:127.0.0.1:12340"
@@ -234,11 +237,13 @@ management/editconf.py /etc/postfix/main.cf \
 # other MTA have their own intervals. To fix the problem of receiving
 # e-mails really latter, delay of greylisting has been set to
 # 180 seconds (default is 300 seconds).
+echo 'Postfix 1D'
 management/editconf.py /etc/default/postgrey \
 	POSTGREY_OPTS=\"'--inet=127.0.0.1:10023 --delay=180'\"
 
 
 # We are going to setup a newer whitelist for postgrey, the version included in the distribution is old
+echo 'Postfix 1E'
 cat > /etc/cron.daily/mailinabox-postgrey-whitelist << EOF;
 #!/bin/bash
 
@@ -261,7 +266,9 @@ if [ ! -f /etc/postgrey/whitelist_clients ] || find /etc/postgrey/whitelist_clie
     fi
 fi
 EOF
+echo 'Postfix 1F'
 chmod +x /etc/cron.daily/mailinabox-postgrey-whitelist
+echo 'Postfix 1G'
 /etc/cron.daily/mailinabox-postgrey-whitelist
 
 echo 'Postfix 2'
