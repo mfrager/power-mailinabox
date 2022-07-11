@@ -43,6 +43,7 @@ chmod g-w /etc /etc/default /usr
 # See https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
 # for reference
 
+DISABLE_FIREWALL=1
 SWAP_MOUNTED=$(cat /proc/swaps | tail -n+2)
 SWAP_IN_FSTAB=$(grep "swap" /etc/fstab || /bin/true)
 ROOT_IS_BTRFS=$(grep "\/ .*btrfs" /proc/mounts || /bin/true)

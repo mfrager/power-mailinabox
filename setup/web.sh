@@ -158,8 +158,8 @@ restart_service nginx
 restart_service php$(php_version)-fpm
 
 # Open ports.
-ufw_allow http
-ufw_allow https
+#ufw_allow http
+#ufw_allow https
 
 # Allow the webserver to access directories group-owned by user-data
 usermod -a -G user-data www-data

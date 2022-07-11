@@ -283,9 +283,9 @@ postmap /etc/postfix/sasl_passwd
 
 # Allow the two SMTP ports in the firewall.
 
-ufw_allow smtp
-ufw_allow smtps
-ufw_allow submission
+#ufw_allow smtp
+#ufw_allow smtps
+#ufw_allow submission
 
 # Restart services
 
