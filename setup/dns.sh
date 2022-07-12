@@ -75,7 +75,7 @@ echo "include: /etc/nsd/nsd.conf.d/*.conf" >> /etc/nsd/nsd.conf;
 rm -f /etc/nsd/zones.conf
 
 # Attempting a late install of nsd (after configuration)
-apt_install nsd
+#apt_install nsd
 
 # Create DNSSEC signing keys.
 
