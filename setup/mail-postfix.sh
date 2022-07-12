@@ -290,5 +290,5 @@ postmap /etc/postfix/sasl_passwd
 
 # Restart services
 
-#restart_service postfix
-#restart_service postgrey
+restart_service postfix
+restart_service postgrey

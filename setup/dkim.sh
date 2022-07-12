@@ -118,7 +118,7 @@ management/editconf.py /etc/postfix/main.cf \
 hide_output systemctl enable opendmarc
 
 # Restart services.
-#restart_service opendkim
-#restart_service opendmarc
-#restart_service postfix
+restart_service opendkim
+restart_service opendmarc
+restart_service postfix
 

@@ -135,7 +135,7 @@ tools/web_update
 
 # Give fail2ban another restart. The log files may not all have been present when
 # fail2ban was first configured, but they should exist now.
-#restart_service fail2ban
+restart_service fail2ban
 
 # If there aren't any mail users yet, create one.
 source setup/firstuser.sh

@@ -218,4 +218,4 @@ chown -R mail.mail $STORAGE_ROOT/mail/sieve
 #ufw_allow sieve
 
 # Restart services.
-#restart_service dovecot
+restart_service dovecot

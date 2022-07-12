@@ -144,7 +144,7 @@ EOF
 chmod +x $inst_dir/start
 cp --remove-destination conf/mailinabox.service /lib/systemd/system/mailinabox.service # target was previously a symlink so remove it first
 hide_output systemctl link -f /lib/systemd/system/mailinabox.service
-#hide_output systemctl daemon-reload
+hide_output systemctl daemon-reload
 hide_output systemctl enable mailinabox.service
 
 # Perform nightly tasks at 3am in system time: take a backup, run
@@ -158,7 +158,7 @@ $minute 3 * * *	root	(cd $(pwd) && management/daily_tasks.sh)
 EOF
 
 # Start the management server.
-#restart_service mailinabox
+restart_service mailinabox
 
 # FOR DEVELOPMENT PURPOSES ONLY:
 # If there is a CA certificate in the folder, install it.

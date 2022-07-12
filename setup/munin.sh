@@ -66,13 +66,13 @@ ln -sf $(pwd)/management/munin_start.sh /usr/local/lib/mailinabox/munin_start.sh
 chmod 0744 /usr/local/lib/mailinabox/munin_start.sh
 cp --remove-destination conf/munin.service /lib/systemd/system/munin.service # target was previously a symlink so remove first
 hide_output systemctl link -f /lib/systemd/system/munin.service
-#hide_output systemctl daemon-reload
+hide_output systemctl daemon-reload
 hide_output systemctl unmask munin.service
 hide_output systemctl enable munin.service
 
 # Restart services.
-#restart_service munin
-#restart_service munin-node
+restart_service munin
+restart_service munin-node
 
 # generate initial statistics so the directory isn't empty
 # (We get "Pango-WARNING **: error opening config file '/root/.config/pango/pangorc': Permission denied"
