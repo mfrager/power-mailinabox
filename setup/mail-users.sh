@@ -169,4 +169,4 @@ restart_service postfix
 restart_service dovecot
 
 # force a recalculation of all user quotas
-#doveadm quota recalc -A
+doveadm quota recalc -A

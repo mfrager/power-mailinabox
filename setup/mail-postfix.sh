@@ -260,7 +260,7 @@ if [ ! -f /etc/postgrey/whitelist_clients ] || find /etc/postgrey/whitelist_clie
 fi
 EOF
 chmod +x /etc/cron.daily/mailinabox-postgrey-whitelist
-#/etc/cron.daily/mailinabox-postgrey-whitelist
+/etc/cron.daily/mailinabox-postgrey-whitelist
 
 
 # Increase the message size limit from 10MB to 128MB.
