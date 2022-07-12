@@ -42,7 +42,7 @@ server:
   # network interface. This allows nsd to start even if the network stack
   # isn't fully ready, which apparently happens in some cases.
   # See https://www.nlnetlabs.nl/projects/nsd/nsd.conf.5.html.
-  ip-transparent: yes
+  #ip-transparent: yes
 
 EOF
 
@@ -63,7 +63,11 @@ EOF
 # might have other network interfaces for e.g. tunnelling, we have
 # to be specific about the network interfaces that nsd binds to.
 for ip in $PRIVATE_IP $PRIVATE_IPV6; do
-	echo "  ip-address: $ip" >> /etc/nsd/nsd.conf;
+	echo "  ip-address: $ip@5300" >> /etc/nsd/nsd.conf;
+done
+echo "remote-control:"  >> /etc/nsd/nsd.conf;
+for ip in $PRIVATE_IP $PRIVATE_IPV6; do
+	echo "  control-interface: $ip" >> /etc/nsd/nsd.conf;
 done
 
 # Create a directory for additional configuration directives, including
@@ -75,7 +79,7 @@ echo "include: /etc/nsd/nsd.conf.d/*.conf" >> /etc/nsd/nsd.conf;
 rm -f /etc/nsd/zones.conf
 
 # Attempting a late install of nsd (after configuration)
-#apt_install nsd
+apt_install nsd
 
 # Create DNSSEC signing keys.
 
